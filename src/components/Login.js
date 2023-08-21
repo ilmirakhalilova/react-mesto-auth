@@ -7,7 +7,7 @@ function Login(props) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = React.useState(false);
-  const [isSuccessfulRegistration, setIsSuccessfulRegistration] = React.useState(false);
+  const [isSuccessfulLogin, setIsSuccessfulLogin] = React.useState(false);
 
   const navigate = useNavigate();
 
@@ -40,7 +40,7 @@ function Login(props) {
       })
       .catch((err) => {
         setIsInfoTooltipPopupOpen(true);
-        setIsSuccessfulRegistration(true);
+        setIsSuccessfulLogin(false);
         console.log('Ошибка: ' + err)
       });
   }
@@ -59,7 +59,7 @@ function Login(props) {
       <InfoTooltip
           isOpen={isInfoTooltipPopupOpen}
           onClose={closeInfoTooltipPopupOpen}
-          isSuccessfulRegistration={isSuccessfulRegistration}
+          isSuccessfulLogin={isSuccessfulLogin}
         />
     </>
   );
